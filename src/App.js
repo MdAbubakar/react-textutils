@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import Navbar from "./components/Navbar";
 import Alert from "./components/Alert";
 import Home from "./components/Home";
@@ -42,7 +41,7 @@ function App() {
             path="/"
             element={
               <Home
-                heading="Enter the text below to analyze"
+                heading="Try TextUtils - Word Counter, Character Counter, Remove extra Spaces"
                 mode={mode}
                 showAlert={showAlert}
               />

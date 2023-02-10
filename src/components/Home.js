@@ -45,7 +45,7 @@ export default function Home(props) {
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
         <h1
-          className="mt-3"
+          className="mb-3"
           style={{ color: props.mode === "dark" ? "white" : "black" }}
         >
           {props.heading}
@@ -67,30 +67,35 @@ export default function Home(props) {
         <button
           className="btn btn-outline-primary mx-1 my-1"
           onClick={handleUpClick}
+          disabled={text.length === 0}
         >
           Convert to Uppercase
         </button>
         <button
           className="btn btn-outline-warning mx-1 my-1"
           onClick={handleLowClick}
+          disabled={text.length === 0}
         >
           Convert to Lowercase
         </button>
         <button
           className="btn btn-outline-danger mx-1 my-1"
           onClick={handleClearText}
+          disabled={text.length === 0}
         >
           Clear Text
         </button>
         <button
-          className="btn btn-outline-secondary mx-1 my-1"
+          className="btn btn-outline-success mx-1 my-1"
           onClick={handleCopyText}
+          disabled={text.length === 0}
         >
           Copy To Clipboard
         </button>
         <button
           className="btn btn-outline-info mx-1 my-1"
           onClick={handleExtraSpaces}
+          disabled={text.length === 0}
         >
           Remove Extra Spaces
         </button>
@@ -101,15 +106,26 @@ export default function Home(props) {
       >
         <h3>Your Text Summary</h3>
         <p>
-          <b>{text.length === 0 ? 0 : text.split(" ").length}</b> words and{" "}
-          <b>{text.length}</b> characters
+          <b>
+            {
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length
+            }
+          </b>{" "}
+          words and <b>{text.length}</b> characters
         </p>
         <p>
-          <b>{text.length === 0 ? 0 : 0.008 * text.split(" ").length}</b>{" "}
+          <b>
+            {0.008 *
+              text.split(" ").filter((element) => {
+                return element.length !== 0;
+              }).length}
+          </b>{" "}
           Minutes required to read
         </p>
         <h3>Preview</h3>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Nothing to Preview"}</p>
       </div>
     </>
   );
