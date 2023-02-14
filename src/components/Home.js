@@ -22,9 +22,7 @@ export default function Home(props) {
   };
 
   const handleCopyText = () => {
-    var text = document.getElementById("myTextBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Text copied to clipboard successfully", "success");
   };
 
@@ -59,7 +57,7 @@ export default function Home(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "#6c757d" : "white",
+              backgroundColor: props.mode === "dark" ? "#252A30" : "white",
               color: props.mode === "dark" ? "white" : "black",
             }}
           />
@@ -108,7 +106,7 @@ export default function Home(props) {
         <p>
           <b>
             {
-              text.split(" ").filter((element) => {
+              text.split(/\s+/).filter((element) => {
                 return element.length !== 0;
               }).length
             }
@@ -125,7 +123,7 @@ export default function Home(props) {
           Minutes required to read
         </p>
         <h3>Preview</h3>
-        <p>{text.length>0?text:"Nothing to Preview"}</p>
+        <p>{text.length > 0 ? text : "Nothing to Preview"}</p>
       </div>
     </>
   );

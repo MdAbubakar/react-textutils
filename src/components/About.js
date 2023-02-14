@@ -2,7 +2,7 @@ import React from "react";
 
 export default function About(props) {
   let myStyle = {
-    backgroundColor: props.mode === "dark" ? "#212529" : "white",
+    backgroundColor: props.mode === "dark" ? "#252a30" : "white",
     color: props.mode === "dark" ? "white" : "black",
   };
   return (

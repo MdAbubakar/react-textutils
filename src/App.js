@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Alert from "./components/Alert";
 import Home from "./components/Home";
 import About from "./components/About";
-import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
